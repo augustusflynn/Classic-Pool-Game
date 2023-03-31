@@ -1,0 +1,11 @@
+{
+  "name": "classic-pool-game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://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@github.com/augustusflynn/Classic-Pool-Game",
+  "author": "tungbhrelipa <tungbh@relipasoft.com>",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "^4.6.1"
+  }
+}
