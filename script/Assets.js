@@ -8,7 +8,7 @@ Game.loadAssets = function () {
         return Game.loadSprite("assets/sprites/" + sprite);
     };
 
-     var loadSound = function (sound) {
+    var loadSound = function (sound) {
         return new Audio("assets/sounds/" + sound);
     };
 
@@ -47,25 +47,25 @@ Game.loadAssets = function () {
     sounds.ballsCollide = loadSound("BallsCollide.wav");
     sounds.strike = loadSound("Strike.wav");
     sounds.hole = loadSound("Hole.wav");
-    
+
     // Bossa Antigua Kevin MacLeod (incompetech.com)
     // Licensed under Creative Commons: By Attribution 3.0 License
     // http://creativecommons.org/licenses/by/3.0/
     sounds.jazzTune = loadSound("Bossa Antigua.mp3");
 }
 
-sounds.fadeOut = function(sound) {
+sounds.fadeOut = function (sound) {
 
     var fadeAudio = setInterval(function () {
 
-        if(GAME_STOPPED)
+        if (GAME_STOPPED)
             return;
 
         // Only fade if past the fade out point or not at zero already
         if ((sound.volume >= 0.05)) {
             sound.volume -= 0.05;
         }
-        else{
+        else {
             sound.pause();
             clearInterval(fadeAudio);
         }

@@ -21,9 +21,19 @@ Object.defineProperty(Canvas2D_Singleton.prototype, "scale",
         }
     });
 
-Canvas2D_Singleton.prototype.initialize = function (divName, canvasName) {
+Canvas2D_Singleton.prototype.initialize = function (divName, canvasName, stickName) {
     this._canvas = document.getElementById(canvasName);
     this._div = document.getElementById(divName);
+    this._stick = document.getElementById(stickName);
+
+    if (isMobileBrowser()) {
+        const stickRect = this._stick.getBoundingClientRect()
+        FireButton.sliderWidth = stickRect.width
+        FireButton.x = stickRect.x
+        this._stick.ontouchmove = moveSlider
+        this._stick.ontouchstart = startDrag
+        this._stick.ontouchend = endDrag
+    }
 
     if (this._canvas.getContext)
         this._canvasContext = this._canvas.getContext('2d');
