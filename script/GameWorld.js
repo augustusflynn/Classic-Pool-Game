@@ -100,8 +100,7 @@ GameWorld.prototype.ballInHand = function () {
     this.stick.visible = false;
     if (!Mouse.left.down) {
         this.whiteBall.position = Mouse.position;
-    }
-    else {
+    } else {
         let ballsOverlap = this.whiteBallOverlapsBalls();
 
         if (!Game.policy.isOutsideBorder(Mouse.position, this.whiteBall.origin) &&

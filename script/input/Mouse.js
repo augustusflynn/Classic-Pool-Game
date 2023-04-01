@@ -46,6 +46,15 @@ function handleMouseUp(evt) {
         Mouse._right.down = false;
 }
 
+function handleTouchStart(evt) {
+    Mouse._left.down = true
+    handleMouseMove(evt.touches[0])
+}
+
+function handleTouchEnd() {
+    Mouse._left.down = false
+}
+
 
 function Mouse_Singleton() {
     this._position = Vector2.zero;
@@ -59,6 +68,8 @@ function Mouse_Singleton() {
     }
     document.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
+    document.ontouchstart = handleTouchStart;
+    document.ontouchend = handleTouchEnd;
 }
 
 Object.defineProperty(Mouse_Singleton.prototype, "left",
